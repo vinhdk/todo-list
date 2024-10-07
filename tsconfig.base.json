@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@todo/design-system": ["./packages/design-system/src/index.ts"],
+      "@todo/core": ["./packages/core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
