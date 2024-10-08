@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use '@fontsource/work-sans';
+@use 'variables';
+
+@mixin setup-typography() {
+  @each $key, $value in variables.$work-sans-keys {
+    $font-size: map.get($value, font-size);
+    $line-height: map.get($value, line-height);
+    --typography-#{$key}-font-size: #{$font-size};
+    --typography-#{$key}-line-height: #{$line-height};
+  }
+}

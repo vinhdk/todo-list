@@ -1,12 +1,20 @@
 const { join } = require('path');
 const { fontFamily } = require('tailwindcss/defaultTheme');
-
+const {
+  provideTailwindTypography,
+} = require('./packages/design-system/public/tailwind/provide-typography');
+const {
+  provideTailwindColors,
+} = require('./packages/design-system/public/tailwind/provide-colors');
+const {
+  provideTailwindBoxShadow,
+} = require('./packages/design-system/public/tailwind/provide-shadow');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     join(
       __dirname,
-      '(apps|packages)/**/!(*.stories|*.spec).{ts,html,scss,css}'
+      '(apps|packages)/**/!(*.stories|*.spec).{ts,tsx,html,scss,css}'
     ),
   ],
   theme: {
@@ -52,11 +60,18 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        ...provideTailwindColors(),
       },
       borderRadius: {
         lg: `var(--radius)`,
         md: `calc(var(--radius) - 2px)`,
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        ...provideTailwindBoxShadow(),
+      },
+      fontSize: {
+        ...provideTailwindTypography(),
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],

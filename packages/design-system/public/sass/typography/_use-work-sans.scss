@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use 'variables';
+
+@mixin use-work-sans($key, $weight: 400) {
+  $font: map.get(variables.$work-sans-keys, $key);
+
+  @if ($font == null) {
+    @error "Invalid font key: #{$key}";
+  }
+
+  font-family: #{variables.$work-sans-family};
+  font-weight: $weight;
+  font-size: map.get($font, font-size);
+  line-height: map.get($font, line-height);
+}

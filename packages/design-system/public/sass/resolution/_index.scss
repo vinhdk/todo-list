@@ -1,0 +1,31 @@
+@mixin use-resolution($min, $max) {
+  @if ($min != null and $max != null) {
+    @media (min-width: #{$min}) and (max-width: #{$max}) {
+      @content;
+    }
+  } @else {
+    @if ($min != null or $max != null) {
+      @if ($min != null) {
+        @media (min-width: #{$min}) {
+          @content;
+        }
+      } @else {
+        @media (max-width: #{$max}) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin use-resolution-min($min) {
+  @include use-resolution($min, null) {
+    @content;
+  }
+}
+
+@mixin use-resolution-max($max) {
+  @include use-resolution(null, $max) {
+    @content;
+  }
+}

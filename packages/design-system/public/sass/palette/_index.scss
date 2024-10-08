@@ -1,0 +1,26 @@
+@use 'variables';
+
+@mixin setup-palette-variables() {
+  @include setup-palette-color-variables();
+  @include setup-palette-box-shadow-variables();
+}
+
+@mixin setup-palette-color-variables() {
+  @each $key, $group in variables.$palette-colors {
+    @include _setup-color-group($group, $key);
+  }
+}
+
+@mixin setup-palette-box-shadow-variables() {
+  @each $key, $value in variables.$palette-shadows {
+    --box-shadow-#{$key}: #{$value};
+  }
+}
+
+@mixin _setup-color-group($group, $key) {
+  @each $color-key, $color-entries in $group {
+    @each $entry-key, $entry-value in $color-entries {
+      --color-#{$key}-#{'' + $color-key}-#{$entry-key}: #{$entry-value};
+    }
+  }
+}

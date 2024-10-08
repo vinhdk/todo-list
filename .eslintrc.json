@@ -36,6 +36,10 @@
       "rules": {
         "@nx/dependency-checks": "warn"
       }
+    },
+    {
+      "files": ["*.html"],
+      "plugins": ["html"]
     }
   ]
 }
