@@ -6,7 +6,8 @@ import {
   DragOverlay,
   DragStartEvent,
   KeyboardSensor,
-  PointerSensor,
+  MouseSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
@@ -151,10 +152,11 @@ function App() {
   };
 
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(TouchSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
-    })
+    }),
+    useSensor(MouseSensor, { activationConstraint: { distance: 10 } })
   );
 
   useEffect(() => {
@@ -170,7 +172,7 @@ function App() {
     <section
       className={cn('flex h-screen w-screen flex-col items-center gap-4')}>
       <header>
-        <label className={'text-h2 font-bold text-global-blue-200'}>
+        <label className={'text-h2 text-global-blue-200 font-bold'}>
           Todo List
         </label>
       </header>

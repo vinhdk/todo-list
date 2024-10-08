@@ -42,8 +42,8 @@ export function Task({ data, onSave, onDelete }: TaskProps) {
   return (
     <Card
       className={'relative w-full'}
-      ref={setNodeRef}
       style={style}
+      ref={setNodeRef}
       {...attributes}
       {...listeners}>
       <CardHeader>

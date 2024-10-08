@@ -13,15 +13,9 @@
       "status": "Completed"
     },
     {
-      "id": "0b0af28e-b700-489e-86c1-f5f438805a05",
-      "name": "Task 3: TODO",
-      "description": "This is a task description. TODO",
-      "status": "Incomplete"
-    },
-    {
       "name": "Task 7: TODO",
       "description": "This is a task description. TODO",
-      "status": "Completed",
+      "status": "Incomplete",
       "id": "0b0af28e-b700-489e-86c1-f5f438805a09"
     },
     {
